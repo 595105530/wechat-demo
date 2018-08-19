@@ -1,0 +1,182 @@
+.window{
+  background-color:cadetblue;
+}
+.head {
+  border:4rpx dotted blue;
+}
+.body{
+  margin-top: 20rpxpx;
+}
+
+/* 顶部图片轮播 */
+.swiperImageShow {
+  width: 750rpx;
+  height: 425rpx;
+  /* align-items: center; */
+}
+.swiperImageShow-text{
+  font-size: 15px;
+  color:aliceblue;
+  position: absolute;
+  top: 5px;
+}
+.swiperImageShow-image {
+  width: 750rpx;
+  border-radius: 20rpx;
+}
+
+/* 分页导航栏 */
+.navBar {
+  background-color: azure;
+  width: 750rpx;
+  height: 70rpx;
+  display: flex;
+  justify-content: space-around;
+  vertical-align: middle;
+}
+.navBar-item {
+  margin-top: 10rpx;
+  width: 33%;
+  text-align: center;
+  color: cornflowerblue;
+  border-bottom:2px solid azure;
+}
+.navBar-item-selected {
+  border-bottom:3px solid cornflowerblue;
+}
+
+/* 分页主体 */
+.page {
+  height: 1140rpx;
+}
+
+/*天气分页*/
+.swpItem-weather{
+  height: 300px;
+}
+.cityChange-Btn{
+  border-bottom: 2px solid rgb(136, 167, 224);
+}
+.weatherCard{
+  width: 100%;
+  height: 300px;
+  margin-top: 10px;
+}
+.weatherCard text{
+  display: block;
+}
+.weatherCard .weatherDetail{
+  width: 100%;
+  position: absolute;
+  left: 30rpx;
+}
+.weatherCard image{
+  position: absolute;
+  top: 100rpx;
+  right: 60rpx;
+}
+
+/*电影分页*/
+.movieList{
+  border-bottom: 2rpx dotted cadetblue;
+  padding-bottom: 20rpx;
+}
+.movieList .title{
+  margin: 20rpx 0;
+  margin-left: 30rpx;
+  display: block;
+}
+.movie-scrollview{
+  background-color:whitesmoke;
+  width: 750rpx;
+  height: 400rpx;
+  white-space: nowrap;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+}
+.movie-card{
+  font-size: 14px;
+  width: 250rpx;
+  height: 400rpx;
+  background-color: white;
+  display:inline-block;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.movie-card .movie-image{
+  width: 200rpx;
+  height: 280rpx;
+}
+.movie-card text{
+  display: block;
+}
+
+/*阅读分页*/
+.swpItem-read{
+  width:100%;
+  height: 1100rpx;
+}
+.swpItem-read .scrollview-read{
+  height: 1040rpx;
+  background-color:whitesmoke;
+}
+.scrollview-read .title{
+  margin: 10rpx;
+}
+.swpItem-read .oneList-card{
+  width: 100%;
+  height: 220rpx;
+  border-bottom: 1rpx dotted cadetblue;
+  margin: 4rpx;
+}
+.swpItem-read image{
+  width: 200rpx;
+  height: 200rpx;
+  margin: 10rpx;
+  position: relative;
+  left: 0;
+}
+.swpItem-read .oneList-info{
+  width: 100%;
+  position: relative;
+  top: -220rpx;
+  left: 220rpx;
+} 
+.oneList-info text{
+  display: block;
+  font-size: 26rpx;
+
+}
+.oneList-info .title{
+  overflow: hidden; /*隐藏溢出的文本 */
+  white-space:nowrap; /*不换行 */
+  text-overflow: ellipsis;/*文本溢出显示省略号*/
+}
+.oneList-info .forward{
+  /* margin: 10px 0; */
+  font-size: 20rpx;
+  width: 520rpx;
+  height: 110rpx;
+  overflow: hidden; /*隐藏溢出的文本 */
+  /* white-space:nowrap; 不换行 */
+  text-overflow: ellipsis;/*文本溢出显示省略号*/
+}
+/*阅读分页-日期控制*/
+.swpItem-read .dateControl{
+  width: 100%;
+  height: 60rpx;
+  border-bottom: 2rpx solid rgb(88, 142, 243);
+  padding: 10rpx;
+  text-align: center;
+  vertical-align: middle;
+}
+.dateControl .btn-l{
+  position: absolute;
+  left: 30rpx;
+}
+.dateControl .btn-r{
+position: absolute;
+  right: 30rpx;
+}

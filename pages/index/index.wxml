@@ -1,0 +1,24 @@
+<view>
+  <text>longitude:{{longitude}} latitude:{{latitude}} {{test}}</text>
+  <button bindtap='showTheMap'>show</button>
+  <navigator url="../logs/logs?msg='abc'"><button>带参数跳转</button></navigator>
+</view>
+<view class="map {{!showmap?'map-show':'map-hide'}}">
+  <map id='map' style='width:100%;height:300px' longitude='{{longitude}}' latitude='{{latitude}}' scale='{{scale}}' markers='{{markers}}' show-location='{{showLocation}}'></map>
+  <slider min='5' max='19' show-value='true' bindchanging='changeScale' bindchange='changeScale' value='{{scale}}'></slider>
+  <view>
+    <text>位置API</text>
+    <button size='mini' type='default' bindtap='getLocation'>GET LOCATION</button>
+    <button size='mini' type='default' bindtap='chooseLocation'>CHOOSE</button>
+    <button size='mini' type='default' bindtap='openLocation'>OPEN</button>
+  </view>
+  <view>
+    <text>地图组件控制</text>
+    <button size='mini' type='default' bindtap='moveToLocation'>moveToLocation</button>
+    <button size='mini' type='default' bindtap='getCenterLocation'>getCenterLocation</button>
+    <button size='mini' type='default' bindtap='getRegion'>getRegion</button>
+    <button size='mini' type='default' bindtap='getScale'>getScale</button>
+    <button wx:if="{{showflag}}" size='mini' open-type='openSetting' bindopensetting="hd1">授权</button>
+    <navigator url='../logs/logs'>logs</navigator>
+  </view>
+</view>

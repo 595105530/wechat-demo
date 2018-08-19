@@ -1,0 +1,14 @@
+{
+  "pages": [
+    "pages/test/test",
+    "pages/index/index",
+    "pages/movieDetail/movieDetail",
+    "pages/readDetail/readDetail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "YangShunyu's Demo",
+    "navigationBarTextStyle": "black"
+  }
+}

@@ -1,0 +1,16 @@
+/**index.wxss**/
+.map{
+  opacity: 1;
+  background-color:antiquewhite;
+  transistion:all 5s;
+}
+.map-show{
+  transition: all 1s;
+  height: 500px;
+}
+.map-hide{
+  transition: all 500;
+  height: 0;
+  /* opacity: 0; */
+  visibility: hidden
+}

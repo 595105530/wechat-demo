@@ -1,0 +1,13 @@
+<!-- 引入模板 -->
+<import src="../components/wxParse/wxParse.wxml" />
+<!-- 这里data中article为bindName -->
+<view class='body'>
+  <block wx:for="{{contentInfo}}">
+    <text class='title'>《{{item.hp_title}}》</text>
+    <view class='authImfo'>
+      <text>作者：{{item.auth_it}} </text>
+      <text>{{item.hp_author_introduce}}</text>
+    </view>
+  </block>
+</view>
+<template is="wxParse" data="{{wxParseData:article.nodes}}"></template>

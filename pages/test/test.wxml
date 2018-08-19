@@ -1,0 +1,98 @@
+
+<view class='head'>
+  <text wx:if="{{images.length==0}}">bing每日图片loading。</text>
+  <swiper class='swiperImageShow' wx:if="{{images.length>0}}" vertical='true' autoplay='true' circular='true' indicator-dots='true' indicator-color='white' indicator-active-color='cornflowerblue' bindtap='previewImage'>
+    <block wx:for="{{images}}" wx:key=''>
+      <swiper-item>
+        <text class='swiperImageShow-text'>{{item.title}}</text>
+        <image class='swiperImageShow-image' src='{{item.url}}' mode='widthFix'></image>
+      </swiper-item>
+    </block>
+  </swiper>
+</view>
+
+<view class='body'>
+  <view class='navBar'>
+    <block wx:for="{{navList}}" wx:key=''>
+      <view id='{{item.id}}' class='navBar-item {{item.isCurr?"navBar-item-selected":""}}' bindtap='navBarTap'>{{item.title}}</view>
+    </block>
+  </view>
+  <swiper class='page' current='{{index}}' bindchange='navListItemChange'>
+
+    <swiper-item class='swpItem-weather'>
+      <view class='weatherCard'>
+        <image src='https://cdn.heweather.com/cond_icon/{{weatherInfo.cond_code || 999}}.png' style='width:100px;height:100px;'></image>
+        <view class='weatherDetail'>
+          <picker mode="region" bindchange='cityChange' value='{{weatherLocation}}'>
+            <button class='cityChange-Btn' size='mini'>选择城市：{{weatherLocation}}</button>
+          </picker>
+          <text>当前天气：{{weatherInfo.cond_txt}}</text>
+          <text>温度：{{weatherInfo.tmp}}°C</text>
+          <text>体感温度：{{weatherInfo.fl}}°C</text>
+          <text>相对湿度：{{weatherInfo.hum}}%</text>
+          <text>降水量：{{weatherInfo.pcpn}}</text>
+          <text>风向：{{weatherInfo.wind_dir}}</text>
+          <text>风力：{{weatherInfo.wind_sc}}级</text>
+          <text>风速：{{weatherInfo.wind_spd}}公里/小时</text>
+          <view style='width:100%;height:1px;background-color:black;'></view>
+          <navigator open-type='navigate' url='https://www.hewether.com'>数据来源：和风天气</navigator>
+        </view>
+      </view>
+    </swiper-item>
+
+    <swiper-item>
+      <view id='in_theathers' class='movieList'>
+        <text class='title'>正在热映</text>
+        <text wx:if='{{moviesInTheaters.length<=0}}'>电影信息加载中..</text>
+        <scroll-view scroll-x="true" class='movie-scrollview' wx:if='{{moviesInTheaters.length>0}}'>
+          <block wx:for="{{moviesInTheaters}}" wx:key=''>
+            <view class='movie-card' data-movie-id='{{item.id}}' bindtap='navigateToDetail_movie'>
+              <image class='movie-image' src='{{item.images.small}}'></image>
+              <text>《{{item.title}}》</text>
+              <text>{{item.durations}}</text>
+              <text>{{item.pubdates}}</text>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+      <view id='coming_soon' class='movieList'>
+        <text class='title'>即将上映</text>
+        <text wx:if='{{moviesComingSoon.length<=0}}'>电影信息加载中..</text>
+        <scroll-view scroll-x='true' class='movie-scrollview' wx:if='{{moviesComingSoon.length>0}}'>
+          <block wx:for="{{moviesComingSoon}}" wx:key=''>
+            <view class='movie-card' data-movie-id='{{item.id}}' bindtap='navigateToDetail_movie'>
+              <image class='movie-image' src='{{item.images.small}}'></image>
+              <text>\n《{{item.title}}》\n</text>
+              <text>{{item.durations}}\n</text>
+              <text>{{item.pubdates}}\n</text>
+            </view>
+          </block>
+        </scroll-view>
+      </view>
+    </swiper-item>
+
+    <swiper-item class="swpItem-read">
+      <view class='dateControl'>
+        <button class='btn-l' size='mini' bindtap='changePostDate' data-direction='go'>⇠</button>
+        <text class='date'>{{oneList[0].date}}</text>
+        <button class='btn-r' size='mini' bindtap='changePostDate' data-direction='back'>⇢</button>
+      </view>
+      <scroll-view scroll-y='true' class='scrollview-read'>
+        <block wx:for='{{oneList}}' wx:key=''>
+          <block wx:for="{{item.content_list}}" wx:key=''>
+            <view class='oneList-card' data-content-id='{{item.item_id}}' bindtap='navigateToDetail_read'>
+              <image src='{{item.img_url}}' mode='aspectFill' lazy-load='true'></image>
+              <view class='oneList-info'>
+                <text class='title'>《{{item.title}}》</text>
+                <view class='forward'>
+                <text>{{item.forward}}</text>
+                </view>
+                <text>(❤：{{item.like_count}}）</text>
+              </view>
+            </view>
+          </block>
+        </block>
+      </scroll-view>
+    </swiper-item>
+  </swiper>
+</view>

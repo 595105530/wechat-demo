@@ -1,0 +1,18 @@
+@import "../components/wxParse/wxParse.wxss";
+
+.body{
+  padding: 15px;
+  font-size: 15px;
+}
+.body .title{
+  display: block;
+  text-align: center;
+  width: 100%;
+  margin: 10px 0;
+}
+.body .authImfo{
+  display: block;
+  text-align: center;
+  border-bottom: 1px dotted cadetblue;
+  margin:0 0 15px;
+}
